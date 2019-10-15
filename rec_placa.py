@@ -2,7 +2,6 @@
 
 import numpy as np
 import tkinter
-import pytesseract
 import cv2
 
 
