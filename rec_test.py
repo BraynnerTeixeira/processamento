@@ -9,7 +9,7 @@ def procurar(contornos,imagem):
     for c in contornos:
         # perimetro do contorno, verifica se o contorno é fechado
         perimetro = cv2.arcLength(c, True)
-        if perimetro > 200 and perimetro < 600:
+        if perimetro > 200 and perimetro < 2000:
            #aproxima os contornos da forma correspondente
            approx = cv2.approxPolyDP(c, 0.03 * perimetro, True)
            #verifica se é um quadrado ou retangulo de acordo com a qtd de vertices
@@ -45,6 +45,6 @@ img, contornos = cv2.findContours(img_result, cv2.RETR_TREE, cv2.CHAIN_APPROX_NO
 
  
 cv2.imshow('FRAME', img_result)
-#procurar(contornos, area)                 
+procurar(contornos, area)                 
 cv2.imshow("Final", area)
 cv2.waitKey(0)              
