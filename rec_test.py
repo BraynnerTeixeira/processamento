@@ -19,7 +19,7 @@ def procurar(contornos,imagem):
              cv2.rectangle(imagem, (x, y), (x + lar, y + alt), (0, 255, 0), 2)
              #segmenta a placa da imagem
              roi = imagem[(y+15):y+alt, x:x+lar]
-             #salva a imagem segmentada em "C:/Tesseract-OCR/saidas/"
+             #salva a imagem segmentada
              cv2.imwrite('D:\\Processamento de Imagens\\Reconhecimento de Placa\\saida\\te.jpg', roi)
              cv2.imshow("Placa Resgatada", roi)
     return imagem
