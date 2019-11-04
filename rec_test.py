@@ -2,7 +2,6 @@
 import numpy as np
 import cv2
 
-
 print("chegou aqui")
 def procurar(contornos,imagem):
     for c in contornos:
@@ -14,7 +13,6 @@ def procurar(contornos,imagem):
            #verifica se é um quadrado ou retangulo de acordo com a qtd de vertices
            if len(approx) == 4:
              #Contorna a placa atraves dos contornos encontrados
-             #cv2.drawContours(imagem, [c], -1, (0, 255, 0), 2)
              (x, y, lar, alt) = cv2.boundingRect(c)
              cv2.rectangle(imagem, (x, y), (x + lar, y + alt), (0, 255, 0), 2)
              #segmenta a placa da imagem
@@ -25,10 +23,10 @@ def procurar(contornos,imagem):
     return imagem
 
 
-    #Carregando a imagem originl
-img = cv2.imread('D:\\Processamento de Imagens\\Reconhecimento de Placa\\imagens\\1.png')
+    # Carregando a imagem originl
+img = cv2.imread('D:\\Processamento de Imagens\\Reconhecimento de Placa\\imagens\\11.png')
 
-    #area de localização
+    # area de localização
 area = img[100: , 80:1200]
  
     # escala de cinza
