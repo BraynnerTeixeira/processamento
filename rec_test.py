@@ -22,29 +22,29 @@ def procurar(contornos,imagem):
              roi = imagem[(y+15):y+alt, x:x+lar]
              #salva a imagem segmentada em "C:/Tesseract-OCR/saidas/"
              cv2.imwrite('D:\\Processamento de Imagens\\Reconhecimento de Placa\\saida\\te.jpg', roi)
+             cv2.imshow("Placa Resgatada", roi)
     return imagem
 
 
-#Carregando a imagem originl
+    #Carregando a imagem originl
 img = cv2.imread('D:\\Processamento de Imagens\\Reconhecimento de Placa\\imagens\\1.png')
 
-#area de localização
+    #area de localização
 area = img[100: , 80:1200]
  
     # escala de cinza
 img_result = cv2.cvtColor(area, cv2.COLOR_BGR2GRAY)
  
     # limiarização
-ret, img_result = cv2.threshold(img_result, 90, 255, cv2.THRESH_BINARY)
+img, img_result = cv2.threshold(img_result, 90, 255, cv2.THRESH_BINARY)
  
     # desfoque
-img_result = cv2.GaussianBlur(img_result, (5, 5), 0)
+img_result = cv2.GaussianBlur(img_result, (7, 7), 0)
  
     # lista os contornos
-img, contornos = cv2.findContours(img_result, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
-
+contornos,img = cv2.findContours(img_result, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
  
-cv2.imshow('FRAME', img_result)
+#cv2.imshow('FRAME', img_result)
 procurar(contornos, area)                 
 cv2.imshow("Final", area)
 cv2.waitKey(0)              
