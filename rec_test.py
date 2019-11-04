@@ -1,6 +1,5 @@
 #Detecção de Placas
 import numpy as np
-import tkinter
 import cv2
 
 
@@ -42,7 +41,7 @@ img, img_result = cv2.threshold(img_result, 90, 255, cv2.THRESH_BINARY)
 img_result = cv2.GaussianBlur(img_result, (7, 7), 0)
  
     # lista os contornos
-contornos,img = cv2.findContours(img_result, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contornos,img = cv2.findContours(img_result, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
  
 #cv2.imshow('FRAME', img_result)
 procurar(contornos, area)                 
