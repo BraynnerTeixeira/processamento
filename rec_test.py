@@ -18,8 +18,8 @@ def procurar(contornos,imagem):
              #segmenta a placa da imagem
              roi = imagem[(y+15):y+alt, x:x+lar]
              #salva a imagem segmentada
-             #cv2.imwrite('D:\\Processamento de Imagens\\Reconhecimento de Placa\\saida\\te.jpg', roi)
-            # cv2.imshow("Placa Resgatada", roi)
+             cv2.imwrite('D:\\Processamento de Imagens\\Reconhecimento de Placa\\saida\\te.jpg', roi)
+             cv2.imshow("Placa Resgatada", roi)
     return imagem
 
 
